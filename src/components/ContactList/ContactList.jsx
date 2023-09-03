@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import { ContactItems, ContactName, ContactNumber, Button } from './ContactList.styled'
+import { ContactItem } from '../ContactItem/ContactItem';
 
 function ContactList({ contacts, deleteContact }) {
   return (
@@ -10,22 +10,7 @@ function ContactList({ contacts, deleteContact }) {
     </ul>
   );
 }
-
-function ContactItem({ contact, deleteContact }) {
-  const handleDelete = () => {
-    deleteContact(contact.id);
-  };
-
-  return (
-    <ContactItems>
-      <ContactName>{contact.name}</ContactName>
-      <ContactNumber>{contact.number}</ContactNumber>
-      <Button onClick={handleDelete}>Delete</Button>
-    </ContactItems>
-  );
-}
-
-ContactItem.propTypes = {
+ContactList.propTypes = {
   contact: PropTypes.object.isRequired,
   deleteContact: PropTypes.func.isRequired,
 };

@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { nanoid } from 'nanoid';
 import { Form, Input, Button, Text } from './ContactForm.styled'
-
+import PropTypes from 'prop-types';
 
 function ContactForm({ addContact, contacts }) {
   const [name, setName] = useState('');
@@ -65,5 +65,8 @@ function ContactForm({ addContact, contacts }) {
     </Form>
   );
 }
-
+ContactForm.propTypes = {
+  contacts: PropTypes.func.isRequired,
+  addContact: PropTypes.func.isRequired,
+};
 export default ContactForm
